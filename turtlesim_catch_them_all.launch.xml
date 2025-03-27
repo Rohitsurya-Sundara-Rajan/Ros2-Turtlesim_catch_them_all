@@ -1,0 +1,14 @@
+<launch>
+    <!-- Launching the turtlesim node -->
+    <node pkg="turtlesim" exec="turtlesim_node" />
+
+    <!-- Launching the controller node with parameters -->
+    <node pkg="turtlesim_catch_them_all" exec="controller">
+        <param from="[(find_package_share my_robot_bringup)/launch/catch_them_all.yaml]" />
+    </node>
+
+    <!-- Launching the spawner node with parameters -->
+    <node pkg="turtlesim_catch_them_all" exec="spawner">
+        <param from="[(find_package_share my_robot_bringup)/launch/catch_them_all.yaml]" />
+    </node>    
+</launch>
